@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 100%;
+    
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+    
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    
+    --primary: 357 92% 47%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 17%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 357 92% 47%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 357 92% 47%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+  }
+}
+
+/* Netflix-specific styles */
+@layer components {
+  .netflix-gradient {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0, rgba(0,0,0,0) 60%, rgba(0,0,0,0.9) 100%);
+  }
+  
+  .netflix-header-gradient {
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+  
+  .hover-scale:hover {
+    @apply transform scale-105 z-10;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .content-fade {
+    @apply absolute bottom-0 left-0 right-0 h-24 pointer-events-none;
+    background: linear-gradient(to top, theme('colors.background'), transparent);
+  }
+}
